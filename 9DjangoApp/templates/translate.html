@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card shadow-lg rounded-4 p-4">
+        <h2 class="card-title text-center mb-4">Text Translator</h2>
+        <form action="{% url 'translate_view' %}" method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="text_to_translate" class="form-label fw-bold">Input Text</label>
+                    <textarea class="form-control form-control-lg" id="text_to_translate" name="text_to_translate" rows="8" placeholder="Enter text to translate"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="translated_text" class="form-label fw-bold">Translation</label>
+                    <textarea class="form-control form-control-lg bg-light" id="translated_text" rows="8" readonly>{{ output_text }}</textarea>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg px-5">Translate</button>
+            </div>
+        </form>
+
+        {% if translated_text %}
+        <div class="mt-5">
+            <h3 class="text-center">Translation Result</h3>
+            <p class="p-3 border rounded bg-light">{{ translated_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

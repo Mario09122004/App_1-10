@@ -1,0 +1,198 @@
+<LoginScreen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 15
+            size_hint_y: None
+            height: self.minimum_height
+
+            Label:
+                text: "User Login"
+                font_size: 32
+                bold: True
+                color: 0.2,0.5,1,1
+                size_hint_y: None
+                height: self.texture_size[1] + 20
+
+            TextInput:
+                id: username
+                hint_text: "Username"
+                multiline: False
+                size_hint_y: None
+                height: 50
+
+            TextInput:
+                id: password
+                hint_text: "Password"
+                multiline: False
+                password: True
+                size_hint_y: None
+                height: 50
+
+            Button:
+                text: "Login"
+                background_color: 0.2,0.5,1,1
+                color: 1,1,1,1
+                size_hint_y: None
+                height: 50
+                on_press: root.login(username.text, password.text)
+
+            Label:
+                text: root.error_message
+                color: 1,0,0,1
+                size_hint_y: None
+                height: self.texture_size[1] + 10
+
+            BoxLayout:
+                size_hint_y: None
+                height: 50
+                spacing: 10
+
+                Button:
+                    text: "Forgot Password?"
+                    background_color: 0,0,0,0
+                    color: 0.2,0.5,1,1
+                    on_press: root.forgot_password()
+
+                Button:
+                    text: "Sign Up"
+                    background_color: 0,0,0,0
+                    color: 0.2,0.5,1,1
+                    on_press: root.manager.current = "sign_up_screen"
+
+<SignUpScreen>:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 15
+            size_hint_y: None
+            height: self.minimum_height
+
+            Label:
+                text: "Sign Up Free"
+                font_size: 28
+                bold: True
+                color: 0.2,0.5,1,1
+                size_hint_y: None
+                height: self.texture_size[1] + 20
+
+            TextInput:
+                id: username
+                hint_text: "Username"
+                multiline: False
+                size_hint_y: None
+                height: 50
+
+            TextInput:
+                id: password
+                hint_text: "Password"
+                multiline: False
+                password: True
+                size_hint_y: None
+                height: 50
+
+            Button:
+                text: "Submit"
+                background_color: 0.2,0.5,1,1
+                color: 1,1,1,1
+                size_hint_y: None
+                height: 50
+                on_press: root.add_user(username.text, password.text)
+
+            Button:
+                text: "Back to Main Menu"
+                background_color: 0.8,0.8,0.8,1
+                color: 0.2,0.5,1,1
+                size_hint_y: None
+                height: 50
+                on_press: root.manager.current = "login_screen"
+
+<SignUpScreenSuccess>:
+    ScrollView:
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 20
+            size_hint_y: None
+            height: self.minimum_height
+
+            Label:
+                text: "Sign Up Successful!"
+                font_size: 28
+                bold: True
+                color: 0.2,0.5,1,1
+                size_hint_y: None
+                height: self.texture_size[1] + 20
+
+            Button:
+                text: "Go to Login"
+                background_color: 0.2,0.5,1,1
+                color: 1,1,1,1
+                size_hint_y: None
+                height: 50
+                on_press: root.go_to_login()
+
+<LoginScreenSuccess>:
+    ScrollView:
+        BoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 15
+            size_hint_y: None
+            height: self.minimum_height
+
+            BoxLayout:
+                size_hint_y: None
+                height: 50
+                Button:
+                    text: "Logout"
+                    background_color: 0.2,0.5,1,1
+                    color: 1,1,1,1
+                    on_press: root.logout()
+
+            Label:
+                text: "Notes"
+                font_size: 24
+                color: 0.2,0.5,1,1
+                size_hint_y: None
+                height: self.texture_size[1] + 20
+
+            TextInput:
+                id: feelings
+                hint_text: "Take a note..."
+                multiline: True
+                size_hint_y: None
+                height: 150
+
+            Button:
+                text: "Submit"
+                background_color: 0.2,0.5,1,1
+                color: 1,1,1,1
+                size_hint_y: None
+                height: 50
+                on_press: root.submit_feelings(feelings.text)
+
+            ScrollView:
+                size_hint_y: None
+                height: 200
+                GridLayout:
+                    id: feelings_list
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+
+<RootWidget>:
+    LoginScreen:
+        name: "login_screen"
+    SignUpScreen:
+        name: "sign_up_screen"
+    SignUpScreenSuccess:
+        name: "sign_up_success"
+    LoginScreenSuccess:
+        name: "login_screen_success"

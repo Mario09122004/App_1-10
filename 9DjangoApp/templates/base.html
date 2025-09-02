@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        /* Navbar personalizado en azul */
+        #mainNav {
+            background: linear-gradient(135deg, #1E3A8A, #2563EB); /* azul oscuro a azul brillante */
+        }
+        #mainNav .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        #mainNav .nav-link {
+            color: #ffffff;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        #mainNav .nav-link:hover {
+            color: #FFD700; /* dorado al pasar el mouse */
+            text-decoration: underline;
+        }
+        #mainNav .navbar-toggler {
+            border-color: #ffffff;
+        }
+        #mainNav .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+        }
+        body {
+            background-color: #e0f2fe; /* fondo azul muy claro */
+            color: #1e3a8a; /* texto azul oscuro */
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">Book and Translate App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about_view' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'translate_view' %}">Translator</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock content %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

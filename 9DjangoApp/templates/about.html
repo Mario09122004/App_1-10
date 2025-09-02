@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Hero section -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">About Us</h1>
+        <p class="lead text-muted">
+            Conoce más sobre nuestro proyecto, nuestra misión y el equipo detrás de todo esto.
+        </p>
+    </div>
+
+    <!-- Cards section -->
+    <div class="row g-4">
+        <!-- Misión -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 border-0 rounded-3">
+                <div class="card-body text-center">
+                    <i class="bi bi-bullseye text-primary fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Nuestra Misión</h5>
+                    <p class="card-text text-muted">
+                        Ayudar a las personas con soluciones innovadoras y efectivas para mejorar su vida diaria.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visión -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 border-0 rounded-3">
+                <div class="card-body text-center">
+                    <i class="bi bi-lightbulb text-warning fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Nuestra Visión</h5>
+                    <p class="card-text text-muted">
+                        Convertirnos en un referente de calidad y confianza en el sector tecnológico.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valores -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 border-0 rounded-3">
+                <div class="card-body text-center">
+                    <i class="bi bi-people text-success fs-1 mb-3"></i>
+                    <h5 class="card-title fw-bold">Nuestros Valores</h5>
+                    <p class="card-text text-muted">
+                        Innovación, compromiso y trabajo en equipo son la base de todo lo que hacemos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

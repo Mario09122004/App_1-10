@@ -1,0 +1,63 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mario's Web App{% endblock %}</title>
+    <script src="https://js-dos.com/cdn/js-dos-api.js"></script>
+    <style>
+        /* Reset y body */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background-color: #121212; color: #fff; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            padding: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2.2em; font-weight: bold; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        nav a:hover { background-color: rgba(255,255,255,0.2); }
+
+        /* Bloques de contenido */
+        main { padding: 40px 0; display: flex; flex-direction: column; align-items: center; }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .container { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Mario's Web App</h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Aquí irán los contenidos de cada página -->
+        {% endblock %}
+    </main>
+
+    {% block scripts %}
+    <!-- Scripts específicos de cada página -->
+    {% endblock %}
+</body>
+</html>

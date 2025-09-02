@@ -1,0 +1,2 @@
+Complicaciones para generar el apk
+Devido a las verciones de las librerias e incompativilidades

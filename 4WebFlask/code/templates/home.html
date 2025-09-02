@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: #fff;
+    }
+
+    .home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 30vh;
+        text-align: center;
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        padding: 40px;
+        margin: 20px auto;
+        max-width: 700px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .home:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .home h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .home p {
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+
+    .doom-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        width: 90vw;
+        height: 80vh;
+        border: 3px solid #fff;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .doom-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    @media (max-width: 768px) {
+        .home h1 { font-size: 2em; }
+        .home p { font-size: 1em; }
+        .doom-container { width: 95vw; height: 70vh; }
+    }
+</style>
+
+<div class="home">
+    <h1>Welcome to My Homepage</h1>
+    <p>This is a test website. Enjoy exploring the content and have fun!</p>
+</div>
+
+<div class="doom-container">
+    <iframe src="{{ url_for('static', filename='doom.pdf') }}">
+        Este navegador no soporta PDFs. Por favor, descarga el archivo
+        <a href="{{ url_for('static', filename='doom.pdf') }}">aquí</a>.
+    </iframe>
+</div>
+
+{% endblock %}
